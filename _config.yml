@@ -103,7 +103,7 @@ theme: volantis
 deploy:
   type: git
   repo: https://github.com/he0xwhale/ai_blog.git
-  branch: main
+  branch: gh-pages
 
 cdn:
   remixicon: https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css
