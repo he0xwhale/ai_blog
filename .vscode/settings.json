@@ -1,0 +1,10 @@
+{
+  "replacerules.rules": {
+    "Remove Markdown heading numbers": {
+      "find": "^(#{2,6})\\s+(\\d+(\\.\\d+)*\\s+)(.*)",
+      "replace": "$1 $4",
+      "flags": "gm",
+      "languages": ["markdown"]
+    }
+  }
+}
