@@ -1,8 +1,7 @@
 ---
 title: "使用 Hexo 搭建 AI 编程风格的吉卜力风博客"
 date: 2025-06-09 05:57:04
-categories:
-  - 博客搭建
+categories: 博客搭建
 tags:
   - Hexo
   - Volantis

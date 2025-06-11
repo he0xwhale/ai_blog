@@ -1,8 +1,7 @@
 ---
 title: "Hexo 博客中 Markdown 标题序号的添加与规范实践"
 date: 2025-06-10 17:00:00
-categories:
-  - 博客搭建
+categories: 博客搭建
 tags:
   - Hexo
   - Markdown
