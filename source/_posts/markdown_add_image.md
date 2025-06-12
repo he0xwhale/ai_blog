@@ -7,7 +7,10 @@ tags:
   - Markdown
   - 插图
   - 博客技巧
+headimg: /images/cover/local_image.jpg
+
 ---
+
 
 ## 🗃️ 图片存放位置的选择
 
