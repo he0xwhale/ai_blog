@@ -19,7 +19,7 @@ headimg: /images/cover/cover_record.jpg
 
 我使用的是 Hexo + Volantis 主题，发现主题的文章预览卡片中，实际上是支持封面图显示的。只是这一功能并不默认开启，也没有在文档中有明显说明，需要我们自己手动配置。
 
-在文章的 front-matter 中加入一个字段，就可以控制每篇文章的封面图显示。
+在文章的 front-matter 中加入headimg字段，就可以控制每篇文章的封面图显示。
 
 ## 3. 添加封面图的方法
 
