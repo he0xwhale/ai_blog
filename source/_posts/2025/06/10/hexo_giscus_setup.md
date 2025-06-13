@@ -8,7 +8,7 @@ tags:
 - 评论系统
 - Giscus
 - GitHub Discussions
-
+headimg: /images/cover/hexo_giscus_setup.jpg
 ---
 
 # Hexo 集成 Giscus 评论系统完整指南

@@ -7,6 +7,7 @@ tags:
   - Markdown
   - 标题序号
   - 博客规范
+headimg: /images/cover/hexo_markdown_title_numbering.jpg
 ---
 ## 引言
 

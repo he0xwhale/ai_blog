@@ -8,6 +8,7 @@ tags:
   - 博客页面
   - 分类标签
   - 友链页面
+headimg: /images/cover/hexo-volantis-add-pages-guide.jpg
 ---
 # Hexo Volantis 添加常用页面指南
 

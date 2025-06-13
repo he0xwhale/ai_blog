@@ -8,6 +8,7 @@ tags:
   - Volantis
   - 博客封面图
   - 实践记录
+headimg: /images/cover/cover_record.jpg
 ---
 
 ## 1. 写在前面
