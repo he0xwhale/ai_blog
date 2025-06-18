@@ -102,7 +102,9 @@ theme:
 hexo clean && hexo g && hexo s
 ```
 
-最终，在文章标题下方正确显示了字数统计和阅读时长信息。
+
+最终，在文章标题下方正确显示了字数统计和阅读时长信息：
+
 ![wordcount](../../../../images/screenshot/2025-06-13_11-18_wordcount.png)
 ---
 
