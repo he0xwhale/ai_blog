@@ -6918,3 +6918,28 @@ pre {
   color: #888;
   margin-top: 0.5em;
 }
+body,
+.page,
+.header,
+.footer,
+.main {
+  background-color: #fff8e7 !important;
+}
+a {
+  color: #3b7d99;
+}
+a:hover {
+  color: #bb4d3b;
+}
+#l_header {
+  background-color: #e5ddc5 !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+article {
+  background-color: #f2f2f2 !important;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
