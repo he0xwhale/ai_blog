@@ -6936,10 +6936,7 @@ a:hover {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
 }
-article {
-  background-color: #f2f2f2 !important;
-  box-shadow: none;
-  -webkit-box-shadow: none;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
+.blur {
+  background: rgba(250,245,235,0.9) !important; /* 柔和奶油白 */
+  backdrop-filter: saturate(150%) blur(10px);
 }

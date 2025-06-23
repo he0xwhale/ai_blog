@@ -6,7 +6,7 @@
   <link href="https://ai.he0xwhale.xyz/atom.xml" rel="self"/>
   
   <link href="https://ai.he0xwhale.xyz/"/>
-  <updated>2025-06-20T07:31:32.913Z</updated>
+  <updated>2025-06-23T07:24:05.466Z</updated>
   <id>https://ai.he0xwhale.xyz/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Volantis 主题下自定义吉卜力风格与柔和配色的实践</title>
+    <link href="https://ai.he0xwhale.xyz/2025/06/20/2025/06/20/volantis-jp-style-css/"/>
+    <id>https://ai.he0xwhale.xyz/2025/06/20/2025/06/20/volantis-jp-style-css/</id>
+    <published>2025-06-20T08:00:00.000Z</published>
+    <updated>2025-06-23T07:24:05.466Z</updated>
+    
+    <content type="html"><![CDATA[<p>在搭建 Hexo 博客并使用 Volantis 主题的过程中，为了营造一种温柔、宁静、类似吉卜力风格的视觉效果，我进行了以下几个方面的样式调整和优化。</p><h2 id="顶栏样式调整"><a href="#顶栏样式调整" class="headerlink" title="顶栏样式调整"></a>顶栏样式调整</h2><p>将默认主题的顶栏背景色替换为柔和的奶油色：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#l_header</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#e5ddc5</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="链接颜色调整"><a href="#链接颜色调整" class="headerlink" title="链接颜色调整"></a>链接颜色调整</h2><p>为了呼应整体的暖色调，同时保持良好的可读性和视觉反馈，设置了如下链接颜色：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#3b7d99</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#bb4d3b</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="模糊背景优化"><a href="#模糊背景优化" class="headerlink" title="模糊背景优化"></a>模糊背景优化</h2><p>Volantis 默认通过 <code>.blur</code> 类结合 <code>backdrop-filter</code> 添加半透明白色背景。为了贴近吉卜力风格，我将其调整为更温暖的色调：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.blur</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">250</span>, <span class="number">245</span>, <span class="number">235</span>, <span class="number">0.9</span>) <span class="meta">!important</span>;  <span class="comment">/* 柔和奶油白 */</span></span><br><span class="line">  <span class="attribute">backdrop-filter</span>: <span class="built_in">saturate</span>(<span class="number">150%</span>) <span class="built_in">blur</span>(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这可以让导航栏、顶部 cover 区域呈现柔光玻璃质感，更加温润不刺眼。</p><h2 id="全局背景色设置"><a href="#全局背景色设置" class="headerlink" title="全局背景色设置"></a>全局背景色设置</h2><p>为了让整个页面背景统一、温暖，采用柔和的奶油白作为主背景色，适用于页面主体、头部、底部等区域：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>,</span><br><span class="line"><span class="selector-class">.page</span>,</span><br><span class="line"><span class="selector-class">.header</span>,</span><br><span class="line"><span class="selector-class">.footer</span>,</span><br><span class="line"><span class="selector-class">.main</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fff8e7</span> <span class="meta">!important</span>; <span class="comment">/* 奶油白 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="背景色覆盖说明：问题定位与排查过程"><a href="#背景色覆盖说明：问题定位与排查过程" class="headerlink" title="背景色覆盖说明：问题定位与排查过程"></a>背景色覆盖说明：问题定位与排查过程</h2><p>在设置 <code>body</code> 或 <code>article</code> 的背景色时，我遇到了一个问题：<strong>即使使用了 <code>!important</code>，设置的背景色依然无效</strong>，在 DevTools 中甚至会被划掉删除线。</p><p> 排查过程如下：</p><ol><li><p><strong>初步怀疑被其他类覆盖</strong>，尝试提升选择器优先级，如 <code>article.card</code>，仍然无效。</p></li><li><p><strong>观察 computed style</strong> 面板，发现真正生效的背景来自一个透明白的 <code>rgba</code> 值。<br> <img src="/../../../../images/screenshot/2025-06-23_15-08_volantis-jp-style-css.png" class="lazyload" data-srcset="/../../../../images/screenshot/2025-06-23_15-08_volantis-jp-style-css.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="computed style"></p></li><li><p>逐层审查 DOM，最终在 <code>.blur</code> 类上找到了这条规则：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.blur</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.9</span>) <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这是 Volantis 主题为了实现玻璃拟态效果而添加的样式。</p></li><li><p>确认该规则在支持 <code>backdrop-filter</code> 的浏览器中通过 <code>@supports</code> 被启用，并且优先级极高。</p></li><li><p>尝试对 <code>.blur</code> 使用新的背景覆盖，测试不同透明度、颜色组合后，最终选用 <code>rgba(250, 245, 235, 0.9)</code> 作为主色。</p></li><li><p>同时，为防止 <code>.blur</code> 遮盖全局背景，设置 <code>body</code>, <code>.page</code>, <code>.main</code> 等关键容器背景色统一为奶油白。</p></li></ol><hr><p>通过上述设置，一个风格统一、色彩柔和、具有吉卜力美感的博客界面就完成了。</p><p>如果你也想打造自己的特色博客风格，不妨从配色入手，加入些微动效与模糊处理，会让整体观感更加细腻舒适。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;在搭建 Hexo 博客并使用 Volantis 主题的过程中，为了营造一种温柔、宁静、类似吉卜力风格的视觉效果，我进行了以下几个方面的样式调整和优化。&lt;/p&gt;
+&lt;h2 id=&quot;顶栏样式调整&quot;&gt;&lt;a href=&quot;#顶栏样式调整&quot; class=&quot;headerlink&quot; titl</summary>
+      
+    
+    
+    
+    <category term="博客美化" scheme="https://ai.he0xwhale.xyz/categories/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/"/>
+    
+    
+    <category term="Hexo" scheme="https://ai.he0xwhale.xyz/tags/Hexo/"/>
+    
+    <category term="Volantis" scheme="https://ai.he0xwhale.xyz/tags/Volantis/"/>
+    
+    <category term="CSS" scheme="https://ai.he0xwhale.xyz/tags/CSS/"/>
+    
+    <category term="博客主题" scheme="https://ai.he0xwhale.xyz/tags/%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98/"/>
+    
+    <category term="吉卜力" scheme="https://ai.he0xwhale.xyz/tags/%E5%90%89%E5%8D%9C%E5%8A%9B/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo 博客头像图片异常变回旧图的问题排查记录</title>
