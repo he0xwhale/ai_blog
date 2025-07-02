@@ -10,6 +10,7 @@ tags:
   - AI编程
   - 吉卜力风
 headimg: /images/cover/ai_coding.jpg
+lang: zh-CN
 ---
 
 > 本文整合了我在搭建博客过程中的对话内容，系统地记录了使用 Hexo + Volantis 搭建一个 AI 编程主题的吉卜力风格博客的过程，包括部署、主题安装、美化、图标替换、壁纸设置与自动刷新等内容。
