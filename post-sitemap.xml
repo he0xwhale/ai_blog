@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>https://ai.he0xwhale.xyz/2025/07/01/strange-debug-story/</loc>
+        <lastmod>2025-07-02T08:26:14.143Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ai.he0xwhale.xyz/2025/07/02/hexo_i_18_n_revert_guide/</loc>
+        <lastmod>2025-07-02T08:25:53.947Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ai.he0xwhale.xyz/2025/06/09/ai-ghibli-hexo-blog/</loc>
+        <lastmod>2025-07-01T09:23:46.401Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://ai.he0xwhale.xyz/2025/06/27/gemini_cli_auth_fix/</loc>
         <lastmod>2025-06-30T07:18:59.387Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -107,14 +131,6 @@
     <url>
         <loc>https://ai.he0xwhale.xyz/2025/06/10/hexo_markdown_title_numbering/</loc>
         <lastmod>2025-06-12T08:56:02.625Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://ai.he0xwhale.xyz/2025/06/09/ai-ghibli-hexo-blog/</loc>
-        <lastmod>2025-06-12T08:55:36.221Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
