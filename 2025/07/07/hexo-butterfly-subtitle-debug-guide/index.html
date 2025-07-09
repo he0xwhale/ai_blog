@@ -1,0 +1,278 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo Butterfly 主题副标题不显示问题排查与解决 | AI WHALE</title><meta name="author" content="he0xwhale"><meta name="copyright" content="he0xwhale"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="引言在使用 Hexo 搭建博客并采用 Butterfly 主题时，您可能会遇到一个令人困惑的问题：网站的 &lt;title&gt; 标签中正确显示了站点标题和副标题（例如 “AI whale - Exploring the World of AI”），但在实际的页面内容（尤其是首页的头部区域）中，却只显示了站点标题，而副标题神秘“失踪”了。本文将详细记录这一问题的排查过程，并提供最终的解决方案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo Butterfly 主题副标题不显示问题排查与解决">
+<meta property="og:url" content="https://ai.he0xwhale.xyz/2025/07/07/hexo-butterfly-subtitle-debug-guide/index.html">
+<meta property="og:site_name" content="AI WHALE">
+<meta property="og:description" content="引言在使用 Hexo 搭建博客并采用 Butterfly 主题时，您可能会遇到一个令人困惑的问题：网站的 &lt;title&gt; 标签中正确显示了站点标题和副标题（例如 “AI whale - Exploring the World of AI”），但在实际的页面内容（尤其是首页的头部区域）中，却只显示了站点标题，而副标题神秘“失踪”了。本文将详细记录这一问题的排查过程，并提供最终的解决方案。">
+<meta property="og:locale">
+<meta property="og:image" content="https://ai.he0xwhale.xyz/images/cover/hexo-butterfly-subtitle-debug-guide.png">
+<meta property="article:published_time" content="2025-07-07T08:30:00.000Z">
+<meta property="article:modified_time" content="2025-07-09T07:53:21.669Z">
+<meta property="article:author" content="he0xwhale">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Debugging">
+<meta property="article:tag" content="Butterfly">
+<meta property="article:tag" content="Configuration">
+<meta property="article:tag" content="Front-end">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ai.he0xwhale.xyz/images/cover/hexo-butterfly-subtitle-debug-guide.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Hexo Butterfly 主题副标题不显示问题排查与解决",
+  "url": "https://ai.he0xwhale.xyz/2025/07/07/hexo-butterfly-subtitle-debug-guide/",
+  "image": "https://ai.he0xwhale.xyz/images/cover/hexo-butterfly-subtitle-debug-guide.png",
+  "datePublished": "2025-07-07T08:30:00.000Z",
+  "dateModified": "2025-07-09T07:53:21.669Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "he0xwhale",
+      "url": "https://ai.he0xwhale.xyz/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/images/website/favicon.ico"><link rel="canonical" href="https://ai.he0xwhale.xyz/2025/07/07/hexo-butterfly-subtitle-debug-guide/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo Butterfly 主题副标题不显示问题排查与解决',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="AI WHALE" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-color: #fff8e7;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/website/logo_2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">59</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa-solid fa-rss"></i><span> 博客</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa-solid fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa-solid fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa-solid fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fa-solid fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-info-circle"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/images/cover/hexo-butterfly-subtitle-debug-guide.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/website/logo.png" alt="Logo"><span class="site-name">AI WHALE</span></a><a class="nav-page-title" href="/"><span class="site-name">Hexo Butterfly 主题副标题不显示问题排查与解决</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa-solid fa-rss"></i><span> 博客</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa-solid fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa-solid fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa-solid fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fa-solid fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-info-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Hexo Butterfly 主题副标题不显示问题排查与解决</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-07-07T08:30:00.000Z" title="发表于 2025-07-07 16:30:00">2025-07-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-07-09T07:53:21.669Z" title="更新于 2025-07-09 15:53:21">2025-07-09</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>在使用 Hexo 搭建博客并采用 Butterfly 主题时，您可能会遇到一个令人困惑的问题：网站的 <code>&lt;title&gt;</code> 标签中正确显示了站点标题和副标题（例如 “AI whale - Exploring the World of AI”），但在实际的页面内容（尤其是首页的头部区域）中，却只显示了站点标题，而副标题神秘“失踪”了。本文将详细记录这一问题的排查过程，并提供最终的解决方案。</p>
+<h3 id="问题现象"><a href="#问题现象" class="headerlink" title="问题现象"></a>问题现象</h3><p>在浏览器中检查网站首页的 HTML 元素，可以发现 <code>&lt;head&gt;</code> 标签内的 <code>&lt;title&gt;</code> 元素内容是完整的：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>AI whale - Exploring the World of AI<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>然而，在 <code>&lt;body&gt;</code> 内部的可见区域，例如 <code>&lt;header&gt;</code> 部分，却只有主标题“AI whale”显示，副标题“Exploring the World of AI”不见踪影。</p>
+<h3 id="排查过程"><a href="#排查过程" class="headerlink" title="排查过程"></a>排查过程</h3><ol>
+<li><p><strong>检查全局配置 (<code>_config.yml</code>)</strong><br>首先，我们检查了 Hexo 的全局配置文件 <code>_config.yml</code>，确认 <code>title</code> 和 <code>subtitle</code> 配置项都已正确设置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">AI</span> <span class="string">whale</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&quot;Exploring the World of AI&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这表明网站的元信息是正确的，问题可能出在主题的渲染逻辑上。</p>
+</li>
+<li><p><strong>定位主题配置文件 (<code>themes/butterfly/_config.yml</code>)</strong><br>Hexo 主题通常有自己的配置文件，这些配置会覆盖或合并全局配置。对于 Butterfly 主题，其配置文件位于 <code>themes/butterfly/_config.yml</code>。我们检查了该文件，发现了 <code>subtitle</code> 相关配置：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># themes/butterfly/_config.yml</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="attr">subtitle:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">effect:</span> <span class="literal">true</span> <span class="comment"># 启用打字机效果</span></span><br><span class="line">  <span class="comment"># ...</span></span><br><span class="line">  <span class="attr">sub:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&quot;从传统编程到AI编程，一刻不停的疲于奔命&quot;</span></span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+
+<p>这里注意到 <code>subtitle</code> 被定义为一个对象，其中 <code>enable</code> 为 <code>true</code>，并且 <code>sub</code> 数组中包含了另一个字符串，而不是全局 <code>_config.yml</code> 中的“Exploring the World of AI”。</p>
+</li>
+<li><p><strong>分析主题渲染逻辑 (<code>themes/butterfly/layout/includes/header/index.pug</code> 和 <code>themes/butterfly/layout/includes/third-party/subtitle.pug</code>)</strong><br>我们进一步深入主题的模板文件，发现主页头部渲染逻辑位于 <code>themes/butterfly/layout/includes/header/index.pug</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// themes/butterfly/layout/includes/header/index.pug</span><br><span class="line">// ...</span><br><span class="line">else if globalPageType === &#x27;home&#x27;</span><br><span class="line">  #site-info</span><br><span class="line">    h1#site-title=config.title</span><br><span class="line">    if theme.subtitle.enable // 条件判断</span><br><span class="line">      - var loadSubJs = true</span><br><span class="line">      #site-subtitle</span><br><span class="line">        span#subtitle // 副标题占位符</span><br><span class="line">// ...</span><br></pre></td></tr></table></figure>
+
+<p>而 <code>span#subtitle</code> 的内容填充则是由 <code>themes/butterfly/layout/includes/third-party/subtitle.pug</code> 中的 JavaScript 动态完成的。关键在于该文件中的逻辑：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// themes/butterfly/layout/includes/third-party/subtitle.pug</span><br><span class="line">- const &#123; effect, source, sub, typed_option &#125; = theme.subtitle</span><br><span class="line">// ...</span><br><span class="line">script.</span><br><span class="line">  window.typedJSFn = &#123;</span><br><span class="line">    init: str =&gt; &#123;</span><br><span class="line">      // ... (Typed.js 初始化逻辑)</span><br><span class="line">    &#125;,</span><br><span class="line">    run: subtitleType =&gt; &#123;</span><br><span class="line">      // ...</span><br><span class="line">    &#125;,</span><br><span class="line">    processSubtitle: (content, extraContents = []) =&gt; &#123;</span><br><span class="line">      if (!&#123;effect&#125;) &#123; // 如果 effect 为 false，使用 Typed.js</span><br><span class="line">        // ...</span><br><span class="line">      &#125; else &#123; // 如果 effect 为 true，直接设置 textContent</span><br><span class="line">        document.getElementById(&#x27;subtitle&#x27;).textContent = typeof content === &#x27;string&#x27; ? content :</span><br><span class="line">          (Array.isArray(content) &amp;&amp; content.length &gt; 0 ? content[0] : &#x27;&#x27;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">// ...</span><br></pre></td></tr></table></figure>
+
+<p>我们发现，如果 <code>theme.subtitle.effect</code> 为 <code>true</code>，则会直接从 <code>theme.subtitle.sub</code> 数组中获取第一个元素作为副标题文本。</p>
+</li>
+<li><p><strong>发现配置冲突</strong><br>问题浮出水面：Hexo 在合并全局 <code>_config.yml</code> 和主题 <code>_config.butterfly.yml</code> 时，对于 <code>subtitle</code> 这个配置项，并没有进行深层合并 (deep merge)，而是简单地用全局 <code>_config.yml</code> 中 <code>subtitle</code> 的字符串值（”Exploring the World of AI”）覆盖了主题 <code>_config.butterfly.yml</code> 中 <code>subtitle</code> 的整个对象。</p>
+<p>这意味着，当 Pug 模板尝试访问 <code>theme.subtitle.enable</code> 或 <code>theme.subtitle.sub</code> 时，它实际上是在尝试访问字符串 <code>&quot;Exploring the World of AI&quot;</code> 的属性，这必然导致 <code>undefined</code> 或错误。因此，<code>if theme.subtitle.enable</code> 条件始终为 <code>false</code>，导致副标题的 HTML 结构和 JavaScript 逻辑都没有被渲染到最终的 <code>public/index.html</code> 中。</p>
+<p>通过在 Pug 模板中输出 <code>theme</code> 对象的完整 JSON 字符串，我们证实了这一点：<code>&quot;subtitle&quot;: &quot;Exploring the World of AI&quot;</code> 确实是 <code>theme</code> 对象中 <code>subtitle</code> 的实际值。</p>
+</li>
+</ol>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>根本原因是 Hexo 配置的合并机制。要解决此问题，需要确保主题的 <code>subtitle</code> 配置能够正确被解析。</p>
+<p><strong>最直接的解决方案是：</strong></p>
+<p>将 Hexo 全局配置文件 (<code>_config.yml</code>) 中的 <code>subtitle</code> 配置项移除或注释掉。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">AI</span> <span class="string">whale</span></span><br><span class="line"><span class="comment"># subtitle: &quot;Exploring the World of AI&quot; # 注释掉或删除此行</span></span><br></pre></td></tr></table></figure>
+
+<p>通过这样做，Hexo 在生成静态文件时，将不再有全局的 <code>subtitle</code> 字符串来覆盖主题的 <code>subtitle</code> 对象。这样，主题 <code>themes/butterfly/_config.yml</code> 中定义的 <code>subtitle</code> 对象（包括 <code>enable: true</code> 和 <code>sub</code> 数组）就会被正确加载和使用，从而使得副标题能够正常显示。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>本次排查的核心在于理解 Hexo 配置文件的合并机制以及主题渲染逻辑对配置项的依赖。当全局配置与主题配置存在同名但不同类型（字符串 vs. 对象）的配置项时，Hexo 会优先使用全局配置，导致主题的复杂配置无法生效。通过移除冲突的全局配置，我们成功地让主题的副标题功能恢复正常。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://ai.he0xwhale.xyz">he0xwhale</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://ai.he0xwhale.xyz/2025/07/07/hexo-butterfly-subtitle-debug-guide/">https://ai.he0xwhale.xyz/2025/07/07/hexo-butterfly-subtitle-debug-guide/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://ai.he0xwhale.xyz" target="_blank">AI WHALE</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a><a class="post-meta__tags" href="/tags/Debugging/">Debugging</a><a class="post-meta__tags" href="/tags/Butterfly/">Butterfly</a><a class="post-meta__tags" href="/tags/Configuration/">Configuration</a><a class="post-meta__tags" href="/tags/Front-end/">Front-end</a></div><div class="post-share"><div class="social-share" data-image="/images/cover/hexo-butterfly-subtitle-debug-guide.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/07/04/hexo-multilingual-guide/" title="Hexo多语言博客导航问题排查全记录"><img class="cover" src="/images/cover/hexo-multilingual-guide.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Hexo多语言博客导航问题排查全记录</div></div><div class="info-2"><div class="info-item-1"> 本文详细记录了在 Hexo 博客中使用 hexo-multiple-language-generate 插件对 Volantis 主题进行多语言国际化时遇到的各种问题，包括目录结构调整、配置文件适配、导航链接错误、样式冲突等，以及从初步尝试到最终放弃该方案的全过程。  国际化需求与初步方案我希望对现有 Hexo 博客进行国际化，支持中文（zh-CN）和英文（en）两种语言。初步方案是利用 hexo-multiple-language-generate 插件，并调整项目结构和配置文件。 核心变动点：  安装插件: hexo-multiple-language-generate。 调整项目结构: 为每种语言创建独立的 source 目录（source-zh/、source-en/）。 Hexo 配置文件: 为每种语言创建独立的 Hexo 配置文件（config.zh.yml、config.en.yml）。 插件配置文件: 在项目根目录创建 hexo-multiple-language.yml。 主题配置文件:...</div></div></div></a><a class="pagination-related" href="/2025/07/09/hexo-butterfly-cover-image-debug-story/" title="一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录"><img class="cover" src="/images/cover/hexo-butterfly-cover-image-debug-story.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录</div></div><div class="info-2"><div class="info-item-1"> 在搭建和美化 Hexo 博客的过程中，我们时常会遇到一些看似简单，却足以让人抓狂的“灵异事件”。最近，我就和我的 AI 助手 Roo 经历了一次这样的封面图调试之旅。一个简单的图片不显示问题，我们排查了代码、配置、路径，甚至怀疑人生，最终却发现“真凶”隐藏在一个意想不到的地方。  这篇文章记录了我们完整的调试过程，希望能为同样在 Hexo 世界中探索的你提供一些有价值的参考和避坑指南。 一、问题的提出：不听话的 category_img 和 tag_img最初的问题很简单：我为分类页和标签页设置了封面图，但它们就是不显示。 在 themes/butterfly/_config.yml 中，我的配置如下： 1234567891011# ...# If the banner of page not setting, it will show the default_top_imgdefault_top_img:# ...# Note: category page, not categories pagecategory_img:...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/2025/07/09/hexo-butterfly-cover-image-debug-story/" title="一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录"><img class="cover" src="/images/cover/hexo-butterfly-cover-image-debug-story.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-07-09</div><div class="info-item-2">一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录</div></div><div class="info-2"><div class="info-item-1"> 在搭建和美化 Hexo 博客的过程中，我们时常会遇到一些看似简单，却足以让人抓狂的“灵异事件”。最近，我就和我的 AI 助手 Roo 经历了一次这样的封面图调试之旅。一个简单的图片不显示问题，我们排查了代码、配置、路径，甚至怀疑人生，最终却发现“真凶”隐藏在一个意想不到的地方。  这篇文章记录了我们完整的调试过程，希望能为同样在 Hexo 世界中探索的你提供一些有价值的参考和避坑指南。 一、问题的提出：不听话的 category_img 和 tag_img最初的问题很简单：我为分类页和标签页设置了封面图，但它们就是不显示。 在 themes/butterfly/_config.yml 中，我的配置如下： 1234567891011# ...# If the banner of page not setting, it will show the default_top_imgdefault_top_img:# ...# Note: category page, not categories pagecategory_img:...</div></div></div></a><a class="pagination-related" href="/2025/06/09/ai-ghibli-hexo-blog/" title="使用 Hexo 搭建 AI 编程风格的吉卜力风博客"><img class="cover" src="/images/cover/ai_coding.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-09</div><div class="info-item-2">使用 Hexo 搭建 AI 编程风格的吉卜力风博客</div></div><div class="info-2"><div class="info-item-1"> 本文整合了我在搭建博客过程中的对话内容，系统地记录了使用 Hexo + Volantis 搭建一个 AI 编程主题的吉卜力风格博客的过程，包括部署、主题安装、美化、图标替换、壁纸设置与自动刷新等内容。  1. 项目初始化与环境准备1234npm install -g hexohexo init ai_blogcd ai_blognpm install  确认版本： 1hexo -v  ✅ 为什么要确认版本？ Volantis 主题对 Hexo 有最低版本要求。根据 Volantis 官方文档，推荐使用 Hexo 6.3.0 或更高版本，以获得最佳兼容性和功能支持。 使用以上命令检查当前版本是否符合要求。如果你的 Hexo 版本低于要求，可以通过以下方式升级： 1npm install -g hexo@latest  2. 主题安装与配置 Volantis ✅ 推荐使用 Git 子模块的方式安装主题，以便未来方便升级、避免嵌套仓库冲突。  2.1. 安装 Volantis 主题（推荐方式 ✅） Fork Volantis 仓库到你自己的 GitHub 账户前往官方仓库：👉...</div></div></div></a><a class="pagination-related" href="/2025/06/10/hexo_giscus_setup/" title="Hexo 博客中集成 Giscus 评论系统的实践记录"><img class="cover" src="/images/cover/hexo_giscus_setup.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">Hexo 博客中集成 Giscus 评论系统的实践记录</div></div><div class="info-2"><div class="info-item-1">Hexo 集成 Giscus 评论系统完整指南📘 一、Giscus 简介Giscus 是一个基于 GitHub Discussions 的现代评论系统，支持 Markdown、暗黑模式、Reactions，并通过 GitHub OAuth 实现身份识别。它不需要额外数据库，适用于技术博客、文档站点等。 volantis默认支持 Giscus，所以选择了这个插件系统。  🚀 二、准备工作2.1 拥有一个公开 GitHub 仓库确保你的博客源代码所在的仓库是公开的。 2.2 Hexo 安装与主题准备本文以 Volantis 主题为例，你应已完成以下操作：  安装 Hexo 配置并使用 Volantis 主题 启用 Hexo 的 deploy 功能（如 hexo-deployer-git）   🔧 三、GitHub 端配置3.1 启用 Discussions 功能 进入你的 GitHub 仓库主页 点击菜单栏的【Settings】→ 左侧【Features】 → 勾选 Discussions  3.2 创建 Discussion 分类 打开仓库的 Discussions...</div></div></div></a><a class="pagination-related" href="/2025/06/10/hexo_markdown_title_numbering/" title="Hexo 博客中 Markdown 标题序号的添加与规范实践"><img class="cover" src="/images/cover/hexo_markdown_title_numbering.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-10</div><div class="info-item-2">Hexo 博客中 Markdown 标题序号的添加与规范实践</div></div><div class="info-2"><div class="info-item-1">引言在写博客时，Markdown 标题序号经常会出现缺失或混乱的问题，尤其是在多人编辑或长期维护的博客项目中。标题结构跳级也常导致 Hexo 渲染页面时出现错乱，比如标题被误识为列表，页面结构紊乱。 本文聚焦两个核心问题：  如何统一给 Markdown 标题添加序号，以及如何清理已有的错误序号； 如何检测并规范标题等级跳级，避免 Hexo 渲染异常。   Part 1：统一添加 &#x2F; 删除标题序号1.1 使用 VS Code 插件自动添加序号推荐使用 VS Code 插件 Markdown All in One 来自动给 Markdown 标题添加序号。  安装插件后，使用命令面板（Ctrl+Shift+P）执行：Add/Update Section Numbers 该命令会遍历文档所有标题，自动添加类似如下的编号：  12## 1. 项目初始化### 1.1 安装依赖  注意：  目前该插件只能生成阿拉伯数字格式的序号； 它不会自动检测并删除已有的编号，重复执行可能导致序号重复。  1.2 删除已有标题序号（使用 Replace...</div></div></div></a><a class="pagination-related" href="/2025/06/11/hexo-volantis-add-pages-guide/" title="Hexo 博客中添加分类、标签、关于、友链页面的完整教程（Volantis 主题）"><img class="cover" src="/images/cover/hexo-volantis-add-pages-guide.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-11</div><div class="info-item-2">Hexo 博客中添加分类、标签、关于、友链页面的完整教程（Volantis 主题）</div></div><div class="info-2"><div class="info-item-1">Hexo Volantis 添加常用页面指南前言在搭建 Hexo 博客并使用 Volantis 主题时，很多人会遇到访问 /categories/、/tags/、/about/ 或 /friends/ 页面时提示 Cannot GET 的问题。本文将手把手教你如何手动添加这些页面并正确配置它们的 front-matter，从而让博客结构更完整，功能更齐全。 一、添加分类页面（&#x2F;categories&#x2F;）1. 安装插件（如未安装）1npm install hexo-generator-category --save  2. 创建页面1hexo new page categories  3. 修改 front-matter编辑 source/categories/index.md 内容如下： 12345---layout: categoryindex: truetitle: 分类---  4. 重建博客1hexo clean &amp;&amp; hexo g &amp;&amp; hexo s  5....</div></div></div></a><a class="pagination-related" href="/2025/06/11/markdown_add_image/" title="Hexo 博客中插入本地图片的实践记录"><img class="cover" src="/images/cover/local_image.jpg" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-06-11</div><div class="info-item-2">Hexo 博客中插入本地图片的实践记录</div></div><div class="info-2"><div class="info-item-1">🗃️ 图片存放位置的选择我将图片统一放在了博客项目的 source/images/ 目录下，这样在 Hexo 构建时会自动复制到 public/images/ 中，路径清晰、引用方便。 ✏️ Markdown 插图语法示例在 Markdown 中插入图片，我采用的是标准语法： 1![评论区截图](/images/comment-preview.png)  图片路径是以 /images/ 开头的绝对路径，对应的是构建后 public/images/ 中的资源。 🔍 本地预览验证方法执行以下命令后，可以本地预览： 1hexo clean &amp;&amp; hexo g &amp;&amp; hexo s  浏览器打开 http://localhost:4000/ 后，文章内图片能正常显示。也可以直接访问图片链接： 1http://localhost:4000/images/comment-preview.png  如果图片能单独访问，但在文章里不显示，那就要检查是否用了相对路径、或者图片链接是否打错。 ✅ 总结Hexo 插图其实不复杂，只要把图片放在 source/...</div></div></div></a></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/website/logo_2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">he0xwhale</div><div class="author-info-description">A blog dedicated to AI, technology, and innovation.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">59</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/he0xwhale"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E7%8E%B0%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text">问题现象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E6%9F%A5%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">排查过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">4.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/07/09/hexo-butterfly-cover-image-debug-story/" title="一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录"><img src="/images/cover/hexo-butterfly-cover-image-debug-story.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录"/></a><div class="content"><a class="title" href="/2025/07/09/hexo-butterfly-cover-image-debug-story/" title="一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录">一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录</a><time datetime="2025-07-09T07:45:00.000Z" title="发表于 2025-07-09 15:45:00">2025-07-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/07/hexo-butterfly-subtitle-debug-guide/" title="Hexo Butterfly 主题副标题不显示问题排查与解决"><img src="/images/cover/hexo-butterfly-subtitle-debug-guide.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo Butterfly 主题副标题不显示问题排查与解决"/></a><div class="content"><a class="title" href="/2025/07/07/hexo-butterfly-subtitle-debug-guide/" title="Hexo Butterfly 主题副标题不显示问题排查与解决">Hexo Butterfly 主题副标题不显示问题排查与解决</a><time datetime="2025-07-07T08:30:00.000Z" title="发表于 2025-07-07 16:30:00">2025-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/04/hexo-multilingual-guide/" title="Hexo多语言博客导航问题排查全记录"><img src="/images/cover/hexo-multilingual-guide.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo多语言博客导航问题排查全记录"/></a><div class="content"><a class="title" href="/2025/07/04/hexo-multilingual-guide/" title="Hexo多语言博客导航问题排查全记录">Hexo多语言博客导航问题排查全记录</a><time datetime="2025-07-04T03:00:00.000Z" title="发表于 2025-07-04 11:00:00">2025-07-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/02/hexo_i_18_n_revert_guide/" title="从 Hexo 国际化配置还原为默认状态（Volantis 主题完整修复指南）"><img src="/images/cover/hexo_i_18_n_revert_guide.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从 Hexo 国际化配置还原为默认状态（Volantis 主题完整修复指南）"/></a><div class="content"><a class="title" href="/2025/07/02/hexo_i_18_n_revert_guide/" title="从 Hexo 国际化配置还原为默认状态（Volantis 主题完整修复指南）">从 Hexo 国际化配置还原为默认状态（Volantis 主题完整修复指南）</a><time datetime="2025-07-01T16:00:00.000Z" title="发表于 2025-07-02 00:00:00">2025-07-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/01/strange-debug-story/" title="一次离奇的VS Code调试经历：当眼见不再为实"><img src="/images/cover/strange-debug-story.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一次离奇的VS Code调试经历：当眼见不再为实"/></a><div class="content"><a class="title" href="/2025/07/01/strange-debug-story/" title="一次离奇的VS Code调试经历：当眼见不再为实">一次离奇的VS Code调试经历：当眼见不再为实</a><time datetime="2025-07-01T03:11:00.000Z" title="发表于 2025-07-01 11:11:00">2025-07-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/cover/hexo-butterfly-subtitle-debug-guide.png);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By he0xwhale</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 6.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="前往评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const isShuoshuo = GLOBAL_CONFIG_SITE.pageType === 'shuoshuo'
+  const option = null
+
+  const getGiscusTheme = theme => theme === 'dark' ? 'dark' : 'light'
+
+  const createScriptElement = config => {
+    const ele = document.createElement('script')
+    Object.entries(config).forEach(([key, value]) => {
+      ele.setAttribute(key, value)
+    })
+    return ele
+  }
+
+  const loadGiscus = (el = document, key) => {
+    const mappingConfig = isShuoshuo
+      ? { 'data-mapping': 'specific', 'data-term': key }
+      : { 'data-mapping': (option && option['data-mapping']) || 'pathname' }
+
+    const giscusConfig = {
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'he0xwhale/ai_blog',
+      'data-repo-id': 'R_kgDOOy_oHw',
+      'data-category-id': 'DIC_kwDOOy_oH84CrUlf',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true,
+      ...option,
+      ...mappingConfig
+    }
+
+    const scriptElement = createScriptElement(giscusConfig)
+
+    el.querySelector('#giscus-wrap').appendChild(scriptElement)
+
+    if (isShuoshuo) {
+      window.shuoshuoComment.destroyGiscus = () => {
+        if (el.children.length) {
+          el.innerHTML = ''
+          el.classList.add('no-comment')
+        }
+      }
+    }
+  }
+
+  const changeGiscusTheme = theme => {
+    const iframe = document.querySelector('#giscus-wrap iframe')
+    if (iframe) {
+      const message = {
+        giscus: {
+          setConfig: {
+            theme: getGiscusTheme(theme)
+          }
+        }
+      }
+      iframe.contentWindow.postMessage(message, 'https://giscus.app')
+    }
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if (isShuoshuo) {
+    'Giscus' === 'Giscus'
+      ? window.shuoshuoComment = { loadComment: loadGiscus }
+      : window.loadOtherComment = loadGiscus
+    return
+  }
+
+  if ('Giscus' === 'Giscus' || !false) {
+    if (false) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment = loadGiscus
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
