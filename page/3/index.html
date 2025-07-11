@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>AI WHALE</title><meta name="author" content="he0xwhale"><meta name="copyright" content="he0xwhale"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="A blog dedicated to AI, technology, and innovation.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI WHALE">
+<meta property="og:url" content="https://ai.he0xwhale.xyz/page/3/index.html">
+<meta property="og:site_name" content="AI WHALE">
+<meta property="og:description" content="A blog dedicated to AI, technology, and innovation.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ai.he0xwhale.xyz/images/website/logo_2.png">
+<meta property="article:author" content="he0xwhale">
+<meta property="article:tag" content="AI, artificial intelligence, technology, innovation, vibe coding">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ai.he0xwhale.xyz/images/website/logo_2.png"><script type="application/ld+json"></script><link rel="shortcut icon" href="/images/website/favicon.ico"><link rel="canonical" href="https://ai.he0xwhale.xyz/page/3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":true},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'AI WHALE',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="AI WHALE" type="application/atom+xml">
+</head><body><div id="web_bg" style="background-color: #fff8e7;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/images/website/logo_2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">62</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa-solid fa-rss"></i><span> 博客</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa-solid fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa-solid fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa-solid fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fa-solid fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-info-circle"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/images/website/bg.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/images/website/logo.png" alt="Logo"><span class="site-name">AI WHALE</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa-solid fa-rss"></i><span> 博客</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa-solid fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa-solid fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa-solid fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/friends/"><i class="fa-fw fa-solid fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-solid fa-info-circle"></i><span> 关于</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="site-info"><h1 id="site-title">AI WHALE</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="post_cover left"><a href="/2025/06/09/ai-ghibli-hexo-blog/" title="使用 Hexo 搭建 AI 编程风格的吉卜力风博客"><img class="post-bg" src="/images/cover/ai_coding.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 Hexo 搭建 AI 编程风格的吉卜力风博客"></a></div><div class="recent-post-info"><a class="article-title" href="/2025/06/09/ai-ghibli-hexo-blog/" title="使用 Hexo 搭建 AI 编程风格的吉卜力风博客">使用 Hexo 搭建 AI 编程风格的吉卜力风博客</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2025-06-08T21:57:04.000Z" title="发表于 2025-06-09 05:57:04">2025-06-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%97%85/">博客之旅</a><i class="fas fa-angle-right article-meta-link"></i><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%97%85/%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BA/">基础搭建</a></span><span class="article-meta tags"><span class="article-meta-separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Hexo/">Hexo</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Volantis/">Volantis</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/GitHub-Pages/">GitHub Pages</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/">博客美化</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/AI%E7%BC%96%E7%A8%8B/">AI编程</a><span class="article-meta-link">•</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E5%90%89%E5%8D%9C%E5%8A%9B%E9%A3%8E/">吉卜力风</a></span></div><div class="content"> 本文整合了我在搭建博客过程中的对话内容，系统地记录了使用 Hexo + Volantis 搭建一个 AI 编程主题的吉卜力风格博客的过程，包括部署、主题安装、美化、图标替换、壁纸设置与自动刷新等内容。  1. 项目初始化与环境准备1234npm install -g hexohexo init ai_blogcd ai_blognpm install  确认版本： 1hexo -v  ✅ 为什么要确认版本？ Volantis 主题对 Hexo 有最低版本要求。根据 Volantis 官方文档，推荐使用 Hexo 6.3.0 或更高版本，以获得最佳兼容性和功能支持。 使用以上命令检查当前版本是否符合要求。如果你的 Hexo 版本低于要求，可以通过以下方式升级： 1npm install -g hexo@latest  2. 主题安装与配置 Volantis ✅ 推荐使用 Git 子模块的方式安装主题，以便未来方便升级、避免嵌套仓库冲突。  2.1. 安装 Volantis 主题（推荐方式 ✅） Fork Volantis 仓库到你自己的 GitHub 账户前往官方仓库：👉 ht...</div></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/2/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/#content-inner">2</a><span class="page-number current">3</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/images/website/logo_2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">he0xwhale</div><div class="author-info-description">A blog dedicated to AI, technology, and innovation.</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">62</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/he0xwhale"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/07/11/hexo-butterfly-pr-git-troubleshooting-guide/" title="Hexo Butterfly 主题 Pull Request 过程中的 Git 实践与常见问题排查"><img src="/images/cover/hexo-butterfly-pr-git-troubleshooting-guide.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo Butterfly 主题 Pull Request 过程中的 Git 实践与常见问题排查"/></a><div class="content"><a class="title" href="/2025/07/11/hexo-butterfly-pr-git-troubleshooting-guide/" title="Hexo Butterfly 主题 Pull Request 过程中的 Git 实践与常见问题排查">Hexo Butterfly 主题 Pull Request 过程中的 Git 实践与常见问题排查</a><time datetime="2025-07-11T02:55:00.000Z" title="发表于 2025-07-11 10:55:00">2025-07-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/09/hexo-butterfly-cover-image-debug-story/" title="一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录"><img src="/images/cover/hexo-butterfly-cover-image-debug-story.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录"/></a><div class="content"><a class="title" href="/2025/07/09/hexo-butterfly-cover-image-debug-story/" title="一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录">一次因缓存引发的“灵异事件”：Hexo Butterfly 主题封面图调试全记录</a><time datetime="2025-07-09T07:45:00.000Z" title="发表于 2025-07-09 15:45:00">2025-07-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/07/hexo-butterfly-subtitle-debug-guide/" title="Hexo Butterfly 主题副标题不显示问题排查与解决"><img src="/images/cover/hexo-butterfly-subtitle-debug-guide.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo Butterfly 主题副标题不显示问题排查与解决"/></a><div class="content"><a class="title" href="/2025/07/07/hexo-butterfly-subtitle-debug-guide/" title="Hexo Butterfly 主题副标题不显示问题排查与解决">Hexo Butterfly 主题副标题不显示问题排查与解决</a><time datetime="2025-07-07T08:30:00.000Z" title="发表于 2025-07-07 16:30:00">2025-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/04/hexo-multilingual-guide/" title="Hexo多语言博客导航问题排查全记录"><img src="/images/cover/hexo-multilingual-guide.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hexo多语言博客导航问题排查全记录"/></a><div class="content"><a class="title" href="/2025/07/04/hexo-multilingual-guide/" title="Hexo多语言博客导航问题排查全记录">Hexo多语言博客导航问题排查全记录</a><time datetime="2025-07-04T03:00:00.000Z" title="发表于 2025-07-04 11:00:00">2025-07-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/07/02/hexo_i_18_n_revert_guide/" title="从 Hexo 国际化配置还原为默认状态（Volantis 主题完整修复指南）"><img src="/images/cover/hexo_i_18_n_revert_guide.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从 Hexo 国际化配置还原为默认状态（Volantis 主题完整修复指南）"/></a><div class="content"><a class="title" href="/2025/07/02/hexo_i_18_n_revert_guide/" title="从 Hexo 国际化配置还原为默认状态（Volantis 主题完整修复指南）">从 Hexo 国际化配置还原为默认状态（Volantis 主题完整修复指南）</a><time datetime="2025-07-01T16:00:00.000Z" title="发表于 2025-07-02 00:00:00">2025-07-02</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+      <i class="fas fa-angle-right"></i></a>
+          </div>
+          <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%97%85/"><span class="card-category-list-name">博客之旅</span><span class="card-category-list-count">17</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%97%85/Git%E5%AE%9E%E8%B7%B5/"><span class="card-category-list-name">Git实践</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%97%85/%E4%BC%98%E5%8C%96%E6%8E%A8%E5%B9%BF/"><span class="card-category-list-name">优化推广</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%97%85/%E5%9F%BA%E7%A1%80%E6%90%AD%E5%BB%BA/"><span class="card-category-list-name">基础搭建</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%97%85/%E7%BE%8E%E5%8C%96%E5%AE%9A%E5%88%B6/"><span class="card-category-list-name">美化定制</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%97%85/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/"><span class="card-category-list-name">问题排查</span><span class="card-category-list-count">3</span></a></li></ul></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/"><span class="card-category-list-name">技术分享</span><span class="card-category-list-count">3</span></a><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/Gemini/"><span class="card-category-list-name">Gemini</span><span class="card-category-list-count">1</span></a></li></ul></li>
+          </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E8%AE%A4%E8%AF%81/" style="font-size: 1.1em; color: #999">认证</a> <a href="/tags/SEO/" style="font-size: 1.1em; color: #999">SEO</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.1em; color: #999">博客</a> <a href="/tags/Debugging/" style="font-size: 1.3em; color: #99a1ac">Debugging</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E8%B0%83%E8%AF%95/" style="font-size: 1.2em; color: #999da3">前端调试</a> <a href="/tags/JavaScript/" style="font-size: 1.1em; color: #999">JavaScript</a> <a href="/tags/Hexo/" style="font-size: 1.5em; color: #99a9bf">Hexo</a> <a href="/tags/CLI/" style="font-size: 1.1em; color: #999">CLI</a> <a href="/tags/%E5%8F%8B%E9%93%BE%E9%A1%B5%E9%9D%A2/" style="font-size: 1.1em; color: #999">友链页面</a> <a href="/tags/Markdown/" style="font-size: 1.3em; color: #99a1ac">Markdown</a> <a href="/tags/Gemini/" style="font-size: 1.1em; color: #999">Gemini</a> <a href="/tags/Configuration/" style="font-size: 1.1em; color: #999">Configuration</a> <a href="/tags/%E5%90%89%E5%8D%9C%E5%8A%9B%E9%A3%8E/" style="font-size: 1.1em; color: #999">吉卜力风</a> <a href="/tags/CSS/" style="font-size: 1.1em; color: #999">CSS</a> <a href="/tags/%E6%8F%92%E5%9B%BE/" style="font-size: 1.1em; color: #999">插图</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">博客优化</a> <a href="/tags/Volantis/" style="font-size: 1.4em; color: #99a5b6">Volantis</a> <a href="/tags/%E5%AE%9E%E8%B7%B5%E8%AE%B0%E5%BD%95/" style="font-size: 1.1em; color: #999">实践记录</a> <a href="/tags/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/" style="font-size: 1.1em; color: #999">问题排查</a> <a href="/tags/GitHub-Pages/" style="font-size: 1.1em; color: #999">GitHub Pages</a> <a href="/tags/AI%E7%BC%96%E7%A8%8B/" style="font-size: 1.1em; color: #999">AI编程</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 1.1em; color: #999">博客搭建</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%81%A2%E5%A4%8D/" style="font-size: 1.1em; color: #999">博客恢复</a> <a href="/tags/Front-end/" style="font-size: 1.1em; color: #999">Front-end</a> <a href="/tags/Git/" style="font-size: 1.2em; color: #999da3">Git</a> <a href="/tags/Cursor/" style="font-size: 1.1em; color: #999">Cursor</a> <a href="/tags/Giscus/" style="font-size: 1.1em; color: #999">Giscus</a> <a href="/tags/%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/" style="font-size: 1.1em; color: #999">评论系统</a> <a href="/tags/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/" style="font-size: 1.3em; color: #99a1ac">踩坑记录</a> <a href="/tags/%E5%9B%BD%E9%99%85%E5%8C%96/" style="font-size: 1.1em; color: #999">国际化</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E8%A7%84%E8%8C%83/" style="font-size: 1.1em; color: #999">博客规范</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%A1%B5%E9%9D%A2/" style="font-size: 1.1em; color: #999">博客页面</a> <a href="/tags/%E5%A4%9A%E8%AF%AD%E8%A8%80/" style="font-size: 1.2em; color: #999da3">多语言</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96/" style="font-size: 1.1em; color: #999">博客美化</a> <a href="/tags/%E5%90%89%E5%8D%9C%E5%8A%9B/" style="font-size: 1.1em; color: #999">吉卜力</a> <a href="/tags/%E5%88%86%E7%B1%BB%E6%A0%87%E7%AD%BE/" style="font-size: 1.1em; color: #999">分类标签</a> <a href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96/" style="font-size: 1.1em; color: #999">搜索引擎优化</a> <a href="/tags/GitHub/" style="font-size: 1.1em; color: #999">GitHub</a> <a href="/tags/OpenGraph/" style="font-size: 1.1em; color: #999">OpenGraph</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E5%B0%81%E9%9D%A2%E5%9B%BE/" style="font-size: 1.1em; color: #999">博客封面图</a></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/07/">
+            <span class="card-archive-list-date">
+              七月 2025
+            </span>
+            <span class="card-archive-list-count">6</span>
+          </a>
+        </li>
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2025/06/">
+            <span class="card-archive-list-date">
+              六月 2025
+            </span>
+            <span class="card-archive-list-count">15</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">21</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">24.1k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2025-07-11T08:06:02.139Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/images/website/bg.png);"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By he0xwhale</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 6.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["从传统编程到AI编程，一刻不停的疲于奔命"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["从传统编程到AI编程，一刻不停的疲于奔命"])
+}
+typedJSFn.run(subtitleType)</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

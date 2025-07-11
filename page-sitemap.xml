@@ -10,6 +10,24 @@
     
     
     <url>
+        <loc>https://ai.he0xwhale.xyz/tags/</loc>
+        <lastmod>2025-07-11T07:38:41.412Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
+        <loc>https://ai.he0xwhale.xyz/categories/</loc>
+        <lastmod>2025-07-11T07:38:27.975Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    
+    
+    <url>
         <loc>https://ai.he0xwhale.xyz/about/</loc>
         <lastmod>2025-07-09T07:41:31.230Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -28,26 +46,8 @@
     
     
     <url>
-        <loc>https://ai.he0xwhale.xyz/categories/</loc>
-        <lastmod>2025-07-08T07:26:19.016Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
         <loc>https://ai.he0xwhale.xyz/archives/</loc>
         <lastmod>2025-07-04T08:17:51.778Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    
-    
-    <url>
-        <loc>https://ai.he0xwhale.xyz/tags/</loc>
-        <lastmod>2025-07-04T08:17:42.511Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>

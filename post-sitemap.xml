@@ -10,7 +10,15 @@
 
     <url>
         <loc>https://ai.he0xwhale.xyz/2025/07/09/hexo-butterfly-cover-image-debug-story/</loc>
-        <lastmod>2025-07-09T07:53:30.680Z</lastmod>
+        <lastmod>2025-07-11T07:37:12.402Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://ai.he0xwhale.xyz/2025/07/11/hexo-butterfly-pr-git-troubleshooting-guide/</loc>
+        <lastmod>2025-07-11T07:35:00.738Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
