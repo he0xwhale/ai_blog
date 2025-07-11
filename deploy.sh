@@ -63,7 +63,7 @@ print_step "Committing changes in main repository..."
 git add themes/butterfly # 子模块引用更新
 git add .                # 其他文件变更
 git commit -m "$commit_msg"
-git push origin dev
+git push origin main
 
 print_success "Main repository committed and pushed."
 
