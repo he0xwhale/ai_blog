@@ -1,12 +1,14 @@
 ---
 title: "Hexo 博客头像图片异常变回旧图的问题排查记录"
 date: 2025-06-20 15:09:45
-categories: 博客搭建
+categories:
+  - 博客之旅
+  - 基础搭建
 tags:
   - Hexo
   - Volantis
   - 前端调试
-headimg: /images/cover/hexo_avatar_bug.png
+cover: /images/cover/hexo_avatar_bug.png
 ---
 
 ## 问题描述

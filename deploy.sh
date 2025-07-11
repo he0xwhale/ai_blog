@@ -38,20 +38,20 @@ hexo deploy
 print_success "Hexo deploy completed."
 
 # === 子模块处理 ===
-print_step "Checking for changes in submodule: themes/volantis..."
-cd themes/volantis
+print_step "Checking for changes in submodule: themes/butterfly..."
+cd themes/butterfly
 
 if [ -n "$(git status --porcelain)" ]; then
-    print_warning "Changes detected in 'themes/volantis'."
-    read -p "📝 Enter commit message for volantis submodule: " volantis_msg
+    print_warning "Changes detected in 'themes/butterfly'."
+    read -p "📝 Enter commit message for butterfly submodule: " butterfly_msg
 
     git add .
-    git commit -m "$volantis_msg"
+    git commit -m "$butterfly_msg"
     git push origin HEAD
 
-    print_success "Submodule 'volantis' committed and pushed."
+    print_success "Submodule 'butterfly' committed and pushed."
 else
-    print_success "No changes in submodule 'volantis'."
+    print_success "No changes in submodule 'butterfly'."
 fi
 
 cd ../..
@@ -60,10 +60,10 @@ cd ../..
 read -p "📝 Enter commit message for main repository: " commit_msg
 
 print_step "Committing changes in main repository..."
-git add themes/volantis # 子模块引用更新
-git add .               # 其他文件变更
+git add themes/butterfly # 子模块引用更新
+git add .                # 其他文件变更
 git commit -m "$commit_msg"
-git push origin main
+git push origin dev
 
 print_success "Main repository committed and pushed."
 

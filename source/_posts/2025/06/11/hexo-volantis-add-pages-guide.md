@@ -1,14 +1,16 @@
 ---
 title: "Hexo 博客中添加分类、标签、关于、友链页面的完整教程（Volantis 主题）"
 date: 2025-06-11 12:00:00
-categories: 博客搭建
+categories:
+  - 博客之旅
+  - 基础搭建
 tags:
   - Hexo
   - Volantis
   - 博客页面
   - 分类标签
   - 友链页面
-headimg: /images/cover/hexo-volantis-add-pages-guide.jpg
+cover: /images/cover/hexo-volantis-add-pages-guide.jpg
 ---
 # Hexo Volantis 添加常用页面指南
 

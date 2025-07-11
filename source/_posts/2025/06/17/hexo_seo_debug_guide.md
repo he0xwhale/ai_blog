@@ -1,10 +1,12 @@
 ---
 title: "Hexo 博客结构化数据与 SEO 配置实践全记录"
 date: 2025-06-17 10:43:01
-categories: [博客搭建, SEO]
+categories:
+  - 博客之旅
+  - 优化推广
 tags: [Hexo, SEO, OpenGraph, 结构化数据, 搜索引擎优化]
 description: "记录一次围绕 Hexo 博客中结构化数据配置、排错与 SEO 基础策略完善的全过程实践，涵盖关键词策略、社交分享、Google Rich Results 测试等内容。"
-headimg: /images/cover/hexo_seo_debug_guide.png
+cover: /images/cover/hexo_seo_debug_guide.png
 ---
 
 最近对 Hexo 博客进行了结构化数据（Structured Data）与 SEO 配置优化，过程中踩了不少坑，以下是完整的记录与总结，希望对同样使用 Hexo 的朋友有所帮助。

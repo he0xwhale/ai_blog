@@ -2,7 +2,9 @@
 title: 从 Hexo 国际化配置还原为默认状态（Volantis 主题完整修复指南）
 date: 2025-07-02 
 categories:
-
+  - 博客之旅
+  - 问题排查
+tags:
 - Hexo
 - Volantis
 - 博客搭建
@@ -13,18 +15,17 @@ categories:
 - i18n
 - 国际化
 - 博客恢复
-headimg: /images/cover/hexo_i_18_n_revert_guide.png
+cover: /images/cover/hexo_i_18_n_revert_guide.png
 
 ---
 
-在尝试为 Hexo 博客启用多语言功能，搭配 Volantis 主题与 `hexo-generator-index-i18n` 插件实现 `/` 显示 zh-CN，`/en/` 显示英文分页的过程中，出现了大量错误：
+>  在尝试为 Hexo 博客启用多语言功能，搭配 Volantis 主题与 `hexo-generator-index-i18n` 插件实现 `/` 显示 zh-CN，`/en/` 显示英文分页的过程中，出现了大量错误
+  - 首页 `Cannot GET /`
+  - `/zh-CN/zh-CN/index.html` 等路径嵌套
+  - 所有文章混杂分页、不正确语言过滤
+  - 页码仍基于总文章数分页（比如 1/4）
 
-- 首页 `Cannot GET /`
-- `/zh-CN/zh-CN/index.html` 等路径嵌套
-- 所有文章混杂分页、不正确语言过滤
-- 页码仍基于总文章数分页（比如 1/4）
-
-最终我决定**完全撤销国际化支持，恢复 Hexo + Volantis 默认行为**，并记录完整还原过程，方便自己或他人参考。
+  最终我决定**完全撤销国际化支持，恢复 Hexo + Volantis 默认行为**，并记录完整还原过程，方便自己或他人参考。
 
 ---
 

@@ -1,13 +1,15 @@
 ---
 title: "Hexo 博客中插入本地图片的实践记录"
 date: 2025-06-11 17:00:00
-categories: 博客搭建
+categories:
+  - 博客之旅
+  - 基础搭建
 tags:
   - Hexo
   - Markdown
   - 插图
   - 博客技巧
-headimg: /images/cover/local_image.jpg
+cover: /images/cover/local_image.jpg
 
 ---
 

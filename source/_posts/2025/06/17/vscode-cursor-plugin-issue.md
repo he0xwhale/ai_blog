@@ -3,13 +3,14 @@ title: 用 Cursor 开发 VSCode 插件时遇到的版本兼容性问题排查实
 date: 2025-06-17 22:13:00 +08:00
 updated: 2025-06-17 22:13:00 +08:00
 categories:
+  - 技术分享
   - 开发实战
 tags:
   - VSCode
   - Cursor
   - 插件开发
   - 踩坑记录
-headimg: /images/cover/vscode-cursor-plugin-issue.jpg
+cover: /images/cover/vscode-cursor-plugin-issue.jpg
 description: 记录一次用 Cursor 开发 VSCode 插件时遇到的环境兼容性问题、排查过程与解决方案，帮助开发者少走弯路。
 ---
 

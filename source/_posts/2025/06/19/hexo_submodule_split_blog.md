@@ -1,13 +1,15 @@
 ---
 title: "从 Hexo 模板创建新博客并独立管理 Volantis 子模块的完整过程"
 date: 2025-06-19 14:52:18
-categories: 博客搭建
+categories:
+  - 博客之旅
+  - 基础搭建
 tags:
   - Hexo
   - Git
   - Volantis
   - Git Submodule
-headimg: /images/cover/hexo_submodule_split_blog.png
+cover: /images/cover/hexo_submodule_split_blog.png
 ---
 
 在 Hexo 博客搭建中，很多用户会选择将主题如 Volantis 作为子模块管理以便于后续更新。然而，如果你想以现有的博客为模板创建新的博客，并保留主题改动，同时又不希望多个项目之间相互干扰，合理管理 Git 子模块就显得非常重要。

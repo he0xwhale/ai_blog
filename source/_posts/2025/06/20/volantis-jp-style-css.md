@@ -1,9 +1,11 @@
 ---
 title: "Volantis 主题下自定义吉卜力风格与柔和配色的实践"
 date: 2025-06-20 16:00:00
-categories: [博客美化]
+categories:
+  - 博客之旅
+  - 美化定制
 tags: [Hexo, Volantis, CSS, 博客主题, 吉卜力]
-headimg: /images/cover/volantis-jp-style-css.png
+cover: /images/cover/volantis-jp-style-css.png
 ---
 
 在搭建 Hexo 博客并使用 Volantis 主题的过程中，为了营造一种温柔、宁静、类似吉卜力风格的视觉效果，我进行了以下几个方面的样式调整和优化。

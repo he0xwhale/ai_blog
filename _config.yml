@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: AI whale
-subtitle: "Exploring the World of AI"
+title: AI WHALE
+# subtitle: "Exploring the World of AI"
 description: "A blog dedicated to AI, technology, and innovation."
 keywords: "AI, artificial intelligence, technology, innovation, vibe coding"
 author: he0xwhale
@@ -106,7 +106,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: volantis
+# theme: volantis
+theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

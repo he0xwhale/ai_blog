@@ -1,13 +1,15 @@
 ---
 title: "Hexo 博客中添加字数统计功能出现标题解析异常的排查记录"
 date: 2025-06-18 11:10:00
-categories: 博客搭建
+categories:
+  - 博客之旅
+  - 基础搭建
 tags:
   - Hexo
   - Volantis
   - Markdown
   - Bug排查
-headimg: /images/cover/hexo-wordcount-bugfix.png
+cover: /images/cover/hexo-wordcount-bugfix.png
 ---
 
 > 在为 Hexo 博客集成字数统计功能时，我遇到一个渲染异常的问题：一段普通的文字和其后的图片被误解析为标题（`<h2>` 标签），导致显示错乱。这篇文章记录了该问题的排查和解决过程，供遇到类似情况的朋友参考。

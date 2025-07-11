@@ -1,12 +1,14 @@
 ---
 title: "Hexo 博客中添加字数统计功能的实践记录"
 date: 2025-06-13 10:49:18
-categories: 博客搭建
+categories:
+  - 博客之旅
+  - 基础搭建
 tags:
   - Hexo
   - Volantis
   - 字数统计
-headimg: /images/cover/hexo-wordcount-practice.jpg
+cover: /images/cover/hexo-wordcount-practice.jpg
 ---
 
 在搭建 Hexo 博客并使用 Volantis 主题时，我尝试为文章添加字数统计功能。以下是我在此过程中遇到的问题和最终解决方案的完整记录。

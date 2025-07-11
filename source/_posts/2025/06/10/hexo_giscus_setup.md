@@ -2,14 +2,16 @@
 
 title: "Hexo 博客中集成 Giscus 评论系统的实践记录" 
 date: 2025-06-10 18:00:00 
-categories: 博客搭建 
+categories:
+  - 博客之旅
+  - 基础搭建
 author: he0xwhale
 tags:
 - Hexo
 - 评论系统
 - Giscus
 - GitHub Discussions
-headimg: /images/cover/hexo_giscus_setup.jpg
+cover: /images/cover/hexo_giscus_setup.jpg
 ---
 
 # Hexo 集成 Giscus 评论系统完整指南

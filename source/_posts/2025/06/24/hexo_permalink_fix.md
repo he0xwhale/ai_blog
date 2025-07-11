@@ -4,7 +4,9 @@ title: "Hexo 博客中 URL 路径出现重复日期的解决方案"
 
 date: 2025-06-24 11:00:00
 
-categories: 博客搭建
+categories:
+  - 博客之旅
+  - 基础搭建
 
 
 tags:
@@ -13,7 +15,7 @@ tags:
 - Volantis
 - 博客优化
 
-headimg: /images/cover/hexo_permalink_fix.png
+cover: /images/cover/hexo_permalink_fix.png
 ---
 
 在使用 Hexo 搭建博客时，你可能会遇到如下问题：

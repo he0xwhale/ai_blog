@@ -2,13 +2,14 @@
 title: "Hexo 博客中为文章添加封面图的实践记录"
 date: 2025-06-12 15:00:00
 categories:
-  - 博客搭建
+  - 博客之旅
+  - 基础搭建
 tags:
   - Hexo
   - Volantis
   - 博客封面图
   - 实践记录
-headimg: /images/cover/cover_record.jpg
+cover: /images/cover/cover_record.jpg
 ---
 
 ## 1. 写在前面
@@ -33,7 +34,7 @@ title: Hexo 博客封面图测试
 date: 2025-06-10 16:20:00
 tags:
   - 博客测试
-headimg: /images/test-cover.jpg
+cover: /images/test-cover.jpg
 ---
 ```
 

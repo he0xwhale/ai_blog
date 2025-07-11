@@ -2,8 +2,8 @@
 title: "解决 Gemini CLI 认证超时及日常使用问题"
 date: 2025-06-27 10:55:16 +0800
 categories:
-- 技术
-- Gemini
+  - 技术分享
+  - Gemini
 tags:
 - Gemini
 - CLI
@@ -11,7 +11,7 @@ tags:
 - 代理
 - 网络
 - Troubleshooting
-headimg: /images/cover/gemini_cli_auth_fix.png # 示例图片路径，请根据实际情况替换
+cover: /images/cover/gemini_cli_auth_fix.png # 示例图片路径，请根据实际情况替换
 ---
 
 > 你是否曾被命令行工具的认证超时问题困扰？当 Google Gemini CLI 尝试通过浏览器进行身份验证时，一个看似简单的步骤却可能隐藏着复杂的网络和配置挑战。本文将深入剖析我如何从一个棘手的认证超时问题入手，通过系统化的排查与调试，最终实现 Gemini CLI 的顺畅使用。这个过程不仅恢复了我的正常工作流程，更让我对现代命令行工具的认证机制、网络代理原理及问题诊断方法有了前所未有的深入理解。

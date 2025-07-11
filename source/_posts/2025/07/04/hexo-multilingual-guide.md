@@ -9,8 +9,9 @@ tags:
   - 前端
   - JavaScript
 categories:
-  - 技术排查
-headimg: /images/cover/hexo-multilingual-guide.png
+  - 博客之旅
+  - 问题排查
+cover: /images/cover/hexo-multilingual-guide.png
 ---
 
 > 本文详细记录了在 Hexo 博客中使用 `hexo-multiple-language-generate` 插件对 Volantis 主题进行多语言国际化时遇到的各种问题，包括目录结构调整、配置文件适配、导航链接错误、样式冲突等，以及从初步尝试到最终放弃该方案的全过程。

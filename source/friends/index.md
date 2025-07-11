@@ -2,6 +2,7 @@
 title: 友链
 layout: page
 comments: false
+top_img: /images/website/friend_link.png
 ---
 
 欢迎交换友链，请留言或联系我。

@@ -9,7 +9,8 @@ tags:
   - Node.js
 categories:
   - 技术分享
-headimg: /images/cover/strange-debug-story.png
+  - 问题排查
+cover: /images/cover/strange-debug-story.png
 
 ---
 
